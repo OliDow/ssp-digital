@@ -24,7 +24,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="DataLoader\" />
 	  <Folder Include="Schema\Resolvers\" />
 	  <Folder Include="Schema\Subscriptions\" />
 	</ItemGroup>

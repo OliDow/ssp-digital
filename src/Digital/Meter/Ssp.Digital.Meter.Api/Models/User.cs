@@ -6,7 +6,7 @@ public class User
     /// Gets or sets the identifier.
     /// </summary>
     /// <value>
-    /// The identifier. AAD Object ID
+    /// The identifier. AAD Object ID.
     /// </value>
     public string? Id { get; set; }
 
@@ -14,7 +14,7 @@ public class User
     /// Gets or sets the email.
     /// </summary>
     /// <value>
-    /// The email from JWT
+    /// The email from JWT.
     /// </value>
     public string? Email { get; set; }
 
@@ -22,7 +22,7 @@ public class User
     /// Gets or sets the username.
     /// </summary>
     /// <value>
-    /// The username from JWT
+    /// The username from JWT.
     /// </value>
     public string? Username { get; set; }
 

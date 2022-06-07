@@ -15,12 +15,12 @@ public class MeterContextSeed
         categoryCollection.InsertMany(
             new List<Core.Entities.Meter>
             {
-                    new Core.Entities.Meter
+                    new()
                     {
                         Id = "629f0d4adeca3a5d54138225",
                         TestField = "Category Description One"
                     },
-                    new Core.Entities.Meter
+                    new()
                     {
                         Id = "629f0d59827f3ea744ed11f8",
                         TestField = "Category Description Two"

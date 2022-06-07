@@ -2,5 +2,5 @@
 
 public class Meter : BaseEntity
 {
-    public string TestField { get; set; }
+    public string TestField { get; set; } = string.Empty;
 }

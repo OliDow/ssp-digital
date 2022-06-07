@@ -5,7 +5,6 @@ namespace Ssp.Digital.Meter.Infrastructure.Repositories;
 
 public class MeterRepository : BaseRepository<Core.Entities.Meter>, IMeterRepository
 {
-    public MeterRepository(IMeterProjectionsContext MeterProjectionsContext) : base(MeterProjectionsContext)
-    {
-    }
+    public MeterRepository(IMeterProjectionsContext meterProjectionsContext)
+        : base(meterProjectionsContext) { }
 }
