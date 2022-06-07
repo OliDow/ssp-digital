@@ -28,24 +28,7 @@ public abstract class ServiceBusTriggerBase : TriggerBase
     {
         try
         {
-            // Abstracted execution to the provider? This can be shared then with the implementation in the funcs application
             await _messageReceiver.ReceiveAsync(message, cancellationToken);
-
-            // Abstract this to shared code
-            // var messageTypeProp = message.ApplicationProperties.GetValueOrDefault(Constants.MessageTypePropertyName);
-            // var messageType = Type.GetType(messageTypeProp?.ToString() ?? string.Empty, true);
-            // var payloadJson = message.Body.ToString();
-            // var payload = JsonSerializer.Deserialize(payloadJson, messageType!) as IMessage;
-            //
-            // Console.WriteLine("PrepareViewGenerator");
-            // Console.WriteLine(payload);
-
-            // Here to demo message exception logging
-            // if (messageType!.Name == "CreateAccount")
-            // {
-            //     throw new ArgumentException("I have a bad feeling about this!");
-            // }
-
             await messageActions.CompleteMessageAsync(message, cancellationToken);
         }
         catch (Exception ex)

@@ -24,7 +24,7 @@ public abstract class ProjectionProcessorBase
         var existingProjections =
             await _projectionRepository.GetProjectionsAsync(partitionKey, cancellationToken);
 
-        // todo Fix potential Race condition where two generators update the same projection
+        // todo Fix potential Race condition where two generators update the same projection & Potential for parallelism
         foreach (var generator in generators)
         {
             var generatedProjections = generator.Generate(@event, existingProjections);

@@ -13,21 +13,21 @@ public class MeterProjection : IProjection
 
     // Unknown
     public string BillingDueDate { get; set; } = string.Empty;
-    public string MeterRatePreviousReadingValue { get; set; } = string.Empty;
     public string AdminSystem { get; set; } = string.Empty;
-    public string LastEstimate { get; set; } = string.Empty;
 
-    public MeterRate Rate { get; set; }
+    public List<MeterRate> Rates { get; set; }
 
     public class MeterRate
     {
         public string RateType { get; set; } = string.Empty;
         public string MeterRateReadingDigits { get; set; } = string.Empty;
 
-        public LatestMeterRateReading LatestMeterRateReading { get; set; }
+        public List<MeterRateReading>
+            MeterRateReadings { get; set; } // this can contain a max of 4 (latest actual and estimate)      
+        //(last actual and last estimate)
     }
 
-    public class LatestMeterRateReading
+    public class MeterRateReading
     {
         public string RateReading { get; set; } = string.Empty;
         public DateTime? Date { get; set; }

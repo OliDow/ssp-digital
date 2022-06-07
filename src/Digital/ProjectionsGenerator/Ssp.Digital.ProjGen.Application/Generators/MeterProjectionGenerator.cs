@@ -7,7 +7,7 @@ namespace Ssp.Digital.ProjGen.Application.Generators;
 
 public class MeterProjectionGenerator : IProjectionGenerator
 {
-    public List<Type> UpdateEvent { get; set; } = new() { typeof(MeterCreated), typeof(MeterReadingSubmitted) };
+    public List<Type> UpdateEvent { get; } = new() { typeof(MeterCreated), typeof(MeterReadingSubmitted) };
 
     public ICollection<IProjection> Generate(IEvent @event, IReadOnlyCollection<IProjection> projections)
     {
@@ -22,16 +22,19 @@ public class MeterProjectionGenerator : IProjectionGenerator
 
         switch (@event)
         {
-            case MeterCreated createMeter:
-                meterProjection.MeterSerialNumber = createMeter.MeterSerialNumber;
-                meterProjection.FuelType = createMeter.FuelType;
-                meterProjection.SiteAddress = createMeter.MeterSerialNumber;
-                meterProjection.MeterPointNumber = createMeter.MeterPointNumber;
-                meterProjection.MeterType = createMeter.MeterType;
+            case MeterCreated meterCreated:
+                meterProjection.MeterSerialNumber = meterCreated.MeterSerialNumber;
+                meterProjection.FuelType = meterCreated.FuelType;
+                meterProjection.SiteAddress = meterCreated.MeterSerialNumber;
+                meterProjection.MeterPointNumber = meterCreated.MeterPointNumber;
+                meterProjection.MeterType = meterCreated.MeterType;
                 break;
             case MeterReadingSubmitted meterReadingSubmitted:
-                meterProjection.Rate.LatestMeterRateReading.RateReading = meterReadingSubmitted.Rate;
-                meterProjection.Rate.LatestMeterRateReading.Date = meterReadingSubmitted.SubmissionDate;
+                // demo purposes only
+                var rate = meterProjection.Rates.Single(s => s.RateType == meterReadingSubmitted.RateType);
+                var reading = rate.MeterRateReadings.Single(s => s.ReadingType == meterReadingSubmitted.ReadingType);
+                reading.RateReading = meterReadingSubmitted.Rate;
+                reading.Date = meterReadingSubmitted.SubmissionDate;
                 break;
         }
 
