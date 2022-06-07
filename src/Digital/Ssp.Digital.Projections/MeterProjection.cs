@@ -13,6 +13,7 @@ public class MeterProjection : IProjection
 
     // Unknown
     public string BillingDueDate { get; set; } = string.Empty;
+
     public string AdminSystem { get; set; } = string.Empty;
 
     public List<MeterRate> Rates { get; set; }
@@ -23,7 +24,9 @@ public class MeterProjection : IProjection
         public string MeterRateReadingDigits { get; set; } = string.Empty;
 
         public List<MeterRateReading>
-            MeterRateReadings { get; set; } // this can contain a max of 4 (latest actual and estimate)      
+            MeterRateReadings
+        { get; set; } // this can contain a max of 4 (latest actual and estimate)
+
         //(last actual and last estimate)
     }
 

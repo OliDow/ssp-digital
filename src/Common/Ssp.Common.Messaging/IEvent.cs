@@ -1,3 +1,4 @@
 ﻿namespace Ssp.Common.Messaging;
 
-public interface IEvent { }
+public interface IEvent
+{ }

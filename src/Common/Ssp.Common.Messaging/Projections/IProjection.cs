@@ -1,3 +1,4 @@
 namespace Ssp.Common.Messaging.Projections;
 
-public interface IProjection { }
+public interface IProjection
+{ }

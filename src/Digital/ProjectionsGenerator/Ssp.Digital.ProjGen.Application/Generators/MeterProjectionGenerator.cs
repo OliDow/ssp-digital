@@ -29,6 +29,7 @@ public class MeterProjectionGenerator : IProjectionGenerator
                 meterProjection.MeterPointNumber = meterCreated.MeterPointNumber;
                 meterProjection.MeterType = meterCreated.MeterType;
                 break;
+
             case MeterReadingSubmitted meterReadingSubmitted:
                 // demo purposes only
                 var rate = meterProjection.Rates.Single(s => s.RateType == meterReadingSubmitted.RateType);
