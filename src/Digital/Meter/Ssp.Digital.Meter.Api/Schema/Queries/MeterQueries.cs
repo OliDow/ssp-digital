@@ -23,6 +23,31 @@ public class MeterQueries
     /// <param name="id">The identifier.</param>
     /// <param name="meterRepository">The meter repository.</param>
     /// <returns>meterRepository.</returns>
+    [UseFirstOrDefault]
     public Task<MeterProjection> GetMeterAsync(string id, [Service] IMeterRepository meterRepository) =>
         meterRepository.GetByIdAsync(id);
+
+    /// <summary>
+    /// Gets the meter asynchronous. multiple records with pagination.
+    /// </summary>
+    /// <param name="meterRepository">The meter repository.</param>
+    /// <returns>meterRepository.</returns>
+    [UsePaging]
+    [UseProjection]
+    [UseSorting]
+    [UseFiltering]
+    public IExecutable<MeterProjection> GetMeterPaged(
+        [Service] IMeterRepository meterRepository) =>
+       meterRepository.GetAllAsExecutable();
+
+    /// <summary>
+    /// Gets the meter asynchronous. multiple records with pagination.
+    /// </summary>
+    /// <param name="meterRepository">The meter repository.</param>
+    /// <returns>meterRepository.</returns>
+    [UseSorting]
+    [UseFiltering]
+    public IExecutable<MeterProjection> GetMeterX(
+        [Service] IMeterRepository meterRepository) =>
+       meterRepository.GetAllAsExecutable();
 }
