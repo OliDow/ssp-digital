@@ -1,7 +1,5 @@
 using Ssp.Common;
 using Ssp.Common.Data.Projections;
-using Ssp.Common.Messaging;
-using Ssp.Digital.Projections;
 using Ssp.Digital.Projections.Meter;
 using Ssp.EP.Events.Source;
 

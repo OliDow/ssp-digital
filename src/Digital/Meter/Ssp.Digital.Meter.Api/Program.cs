@@ -1,9 +1,6 @@
 using Ssp.Common.Data.Extensions;
-using Ssp.Common.Data.Repository;
-using Ssp.Digital.Meter.Api.Schema.Queries;
-using Ssp.Digital.Meter.Core.Repositories;
-using Ssp.Digital.Meter.Infrastructure.Data;
-using Ssp.Digital.Meter.Infrastructure.Repositories;
+using Ssp.Common.Extensions;
+using Ssp.Digital.Meter.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,33 +8,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMongo();
 
 // Repositories
-builder.Services.AddSingleton<IMeterProjectionsContext, MeterProjectionsContext>();
-builder.Services.AddScoped(typeof(IReadModelRepository<>), typeof(ReadModelRepository<>));
-builder.Services.AddScoped<IMeterRepository, MeterRepository>();
+builder.Services.AddMeterServiceCollections();
 
 // GraphQL
-builder.Services
-    .AddGraphQLServer()
-    .AddAssetTypes() // for assembly registration of annotated using type attributes
-    .AddQueryType<Query>()
-    // .AddTypeExtension<MeterQueries>()
-    // .AddMutationType<Mutations>()
-    // .AddTypeExtension<MeterMutations>()
-    // .AddSubscriptionType()
-    // .AddMutationConventions()
+builder.Services.AddGraphQlExtension(builder.Configuration);
 
-    // order of there next items: UsePaging > UseProjection > UseFiltering > UseSorting
-    // .AddProjections()
-    // .AddFiltering()
-    // .AddSorting()
-
-    // MongoDb Equivalents for Db Side: DbProjections, Filtering & Sorting
-    .AddMongoDbPagingProviders()
-    .AddMongoDbProjections()
-    .AddMongoDbFiltering()
-    .AddMongoDbSorting();
-
+// CQRS Command provider
 builder.Services.AddCqrs();
+
+// Cors Security
+builder.Services.AddCorsExtension();
+
+// Application Insights
+builder.Services.AddApplicationInsights(builder.Configuration);
+
+// Health Checks
+builder.Services.AddHealthCheckExtension();
 
 var app = builder.Build();
 

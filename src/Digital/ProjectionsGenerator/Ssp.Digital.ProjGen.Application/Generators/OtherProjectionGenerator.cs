@@ -1,7 +1,5 @@
 using Ssp.Common;
 using Ssp.Common.Data.Projections;
-using Ssp.Common.Messaging;
-using Ssp.EP.Events.Source;
 
 namespace Ssp.Digital.ProjGen.Application.Generators;
 

@@ -3,7 +3,7 @@
 public class CommandProvider : ICommandProvider
 {
     public CommandProvider() { }
-// }IHttpClientFactory clientFactory) { }
+    // }IHttpClientFactory clientFactory) { }
 
     public async Task<string> SendCommandAsync(IEvent payload, CancellationToken cancellationToken)
     {
