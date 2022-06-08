@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
+using Ssp.Common.Data.Extensions;
 using Ssp.Common.Extensions;
 using Ssp.Common.Messaging.Extensions;
 using Ssp.Common.Messaging.Messaging;
@@ -21,16 +22,19 @@ public class Startup : FunctionsStartup
 
     public override void Configure(IFunctionsHostBuilder builder)
     {
+        var configuration = builder.GetContext().Configuration;
+
         builder.Services.AddTelemetry(ExecutingAssemblyName);
         builder.Services.AddCommonProviders();
 
-        var configuration = builder.GetContext().Configuration;
         builder.Services.AddPocMessaging(configuration);
         builder.Services.AddPocEventHub(configuration);
 
         builder.Services.AddTransient<IMessageReceiver, MessageReceiver>();
 
         builder.Services.AddGenerators();
+        builder.Services.AddMongo(configuration);
+
         builder.Services.AddMediatR(typeof(MeterCreatedHandler));
     }
 }

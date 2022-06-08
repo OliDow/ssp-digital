@@ -3,7 +3,6 @@ using Microsoft.Azure.WebJobs.ServiceBus;
 using Ssp.Common.Messaging.Functions.Builders;
 using Ssp.Common.Messaging.Messaging;
 using Ssp.Common.Messaging.Repository;
-using System.Text.Json;
 
 namespace Ssp.Common.Messaging.Functions;
 

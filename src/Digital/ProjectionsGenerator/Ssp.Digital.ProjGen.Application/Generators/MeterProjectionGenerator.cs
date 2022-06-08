@@ -1,6 +1,8 @@
+using Ssp.Common;
+using Ssp.Common.Data.Projections;
 using Ssp.Common.Messaging;
-using Ssp.Common.Messaging.Projections;
 using Ssp.Digital.Projections;
+using Ssp.Digital.Projections.Meter;
 using Ssp.EP.Events.Source;
 
 namespace Ssp.Digital.ProjGen.Application.Generators;
@@ -18,7 +20,10 @@ public class MeterProjectionGenerator : IProjectionGenerator
             throw new ArgumentException($"Supplied Event was not in UpdateEvent List");
         }
 
-        var meterProjection = projections.OfType<MeterProjection>().SingleOrDefault() ?? new MeterProjection();
+        var meterProjection = projections.OfType<MeterProjection>().SingleOrDefault() ?? new MeterProjection
+        {
+            Id = Guid.NewGuid().ToString()
+        };
 
         switch (@event)
         {
@@ -29,6 +34,7 @@ public class MeterProjectionGenerator : IProjectionGenerator
                 meterProjection.MeterPointNumber = meterCreated.MeterPointNumber;
                 meterProjection.MeterType = meterCreated.MeterType;
                 break;
+
             case MeterReadingSubmitted meterReadingSubmitted:
                 // demo purposes only
                 var rate = meterProjection.Rates.Single(s => s.RateType == meterReadingSubmitted.RateType);

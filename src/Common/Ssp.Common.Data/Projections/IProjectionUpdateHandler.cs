@@ -1,6 +1,7 @@
 using MediatR;
 
-namespace Ssp.Common.Messaging.Projections;
+namespace Ssp.Common.Data.Projections;
 
 public interface IProjectionUpdateHandler<in T> : IRequestHandler<T>
-    where T : IRequest<Unit> { }
+    where T : IRequest<Unit>
+{ }
