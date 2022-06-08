@@ -26,7 +26,7 @@ public class ProjectionRepository : IProjectionRepository
         return new List<IProjection>();
     }
 
-    public async Task Upsert(ICollection<IProjection> generatedProjections, CancellationToken cancellationToken)
+    public async Task UpsertAsync(ICollection<IProjection> generatedProjections, CancellationToken cancellationToken)
     {
         // todo Needs to be a merge not just bulk insert
         var projectionsCollection = _database.GetCollection<IProjection>("MeterProjection");

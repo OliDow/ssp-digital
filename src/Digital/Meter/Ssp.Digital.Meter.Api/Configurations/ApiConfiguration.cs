@@ -7,5 +7,5 @@ namespace Ssp.Digital.Meter.Api.Configurations;
 /// </summary>
 public class ApiConfiguration
 {
-    public MongoDbConfiguration MongoDbConfiguration { get; set; } = new();
+    public MongoSettings MongoDbConfiguration { get; set; } = new();
 }

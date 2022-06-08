@@ -7,8 +7,8 @@
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="MediatR" Version="10.0.1"/>
-        <PackageReference Include="MongoDB.Driver" Version="2.16.0"/>
+        <PackageReference Include="MediatR" Version="10.0.1" />
+        <PackageReference Include="MongoDB.Driver" Version="2.16.0" />
         <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Ssp.Common\Ssp.Common.csproj"/>
+        <ProjectReference Include="..\Ssp.Common\Ssp.Common.csproj" />
     </ItemGroup>
 
 </Project>

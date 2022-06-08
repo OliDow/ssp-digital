@@ -28,7 +28,7 @@ public abstract class ProjectionProcessorBase
         foreach (var generator in generators)
         {
             var generatedProjections = generator.Generate(@event, existingProjections);
-            await _projectionRepository.Upsert(generatedProjections, cancellationToken);
+            await _projectionRepository.UpsertAsync(generatedProjections, cancellationToken);
         }
 
         return Unit.Value;
