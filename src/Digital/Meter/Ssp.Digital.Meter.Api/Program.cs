@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Ssp.Common.Data.Extensions;
 using Ssp.Common.Extensions;
 using Ssp.Digital.Meter.Api.Extensions;
@@ -30,5 +32,15 @@ var app = builder.Build();
 app.MapGraphQL();
 app.UseGraphQLVoyager();
 // app.UseAuthentication();
+
+app.UseHealthChecks("/health", new HealthCheckOptions
+{
+    ResultStatusCodes =
+                {
+                    [HealthStatus.Healthy] = StatusCodes.Status200OK,
+                    [HealthStatus.Degraded] = StatusCodes.Status200OK,
+                    [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
+                }
+});
 
 app.Run();
