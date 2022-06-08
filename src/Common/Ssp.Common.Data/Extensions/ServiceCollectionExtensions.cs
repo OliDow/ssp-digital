@@ -9,12 +9,12 @@ namespace Ssp.Common.Data.Extensions;
 [ExcludeFromCodeCoverage]
 public static class ServiceCollectionExtensions
 {
-    public static void AddMongo(this IServiceCollection services, IConfiguration configurationn)
+    public static void AddMongo(this IServiceCollection services)
     {
         services.AddOptions<MongoSettings>()
             .Configure<IConfiguration>((settings, configuration) =>
             {
-                configurationn.GetSection("MongoDbConfiguration").Bind(settings);
+                configuration.GetSection("MongoDbConfiguration").Bind(settings);
             });
     }
 
