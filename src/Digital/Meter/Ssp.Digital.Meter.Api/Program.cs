@@ -1,6 +1,5 @@
 using Ssp.Common.Data.Extensions;
 using Ssp.Common.Data.Repository;
-using Ssp.Digital.Meter.Api.Configurations;
 using Ssp.Digital.Meter.Api.Schema.Queries;
 using Ssp.Digital.Meter.Core.Repositories;
 using Ssp.Digital.Meter.Infrastructure.Data;
@@ -8,9 +7,8 @@ using Ssp.Digital.Meter.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurations
-var configValue = builder.Configuration.Get<ApiConfiguration>();
-builder.Services.AddSingleton(configValue.MongoDbConfiguration);
+// Add MongoDB
+builder.Services.AddMongo();
 
 // Repositories
 builder.Services.AddSingleton<IMeterProjectionsContext, MeterProjectionsContext>();

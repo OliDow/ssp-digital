@@ -33,7 +33,7 @@ public class Startup : FunctionsStartup
         builder.Services.AddTransient<IMessageReceiver, MessageReceiver>();
 
         builder.Services.AddGenerators();
-        builder.Services.AddMongo(configuration);
+        builder.Services.AddMongo();
 
         builder.Services.AddMediatR(typeof(MeterCreatedHandler));
     }
