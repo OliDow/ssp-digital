@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Ssp.Common.Messaging.Projections;
+namespace Ssp.Common.Data.Projections;
 
 public abstract class ProjectionProcessorBase
 {

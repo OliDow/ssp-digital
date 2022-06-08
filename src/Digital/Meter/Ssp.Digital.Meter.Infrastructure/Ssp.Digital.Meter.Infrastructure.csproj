@@ -9,12 +9,16 @@
 
 
     <ItemGroup>
-        <PackageReference Include="MongoDB.Driver" Version="2.15.1"/>
+        <PackageReference Include="MongoDB.Driver" Version="2.16.0" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
 
 
     <ItemGroup>
-        <ProjectReference Include="..\Ssp.Digital.Meter.Core\Ssp.Digital.Meter.Core.csproj"/>
+        <ProjectReference Include="..\Ssp.Digital.Meter.Core\Ssp.Digital.Meter.Core.csproj" />
     </ItemGroup>
 
 

@@ -1,5 +1,5 @@
 ﻿using MongoDB.Driver;
-using Ssp.Digital.Meter.Infrastructure.Configurations;
+using Ssp.Common.Data.Mongo;
 
 namespace Ssp.Digital.Meter.Infrastructure.Data;
 
@@ -14,7 +14,7 @@ public class MeterProjectionsContext : IMeterProjectionsContext
         _database = client.GetDatabase(mongoDbConfiguration.Database);
 
         // For testing purposes ;)
-        MeterContextSeed.SeedData(_database);
+        // MeterContextSeed.SeedData(_database);
     }
 
     public IMongoCollection<T> GetCollection<T>(string name)

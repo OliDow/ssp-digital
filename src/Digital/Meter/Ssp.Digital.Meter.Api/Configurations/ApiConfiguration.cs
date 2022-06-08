@@ -1,6 +1,6 @@
-﻿namespace Ssp.Digital.Meter.API.Configurations;
+﻿using Ssp.Common.Data.Mongo;
 
-using Ssp.Digital.Meter.Infrastructure.Configurations;
+namespace Ssp.Digital.Meter.Api.Configurations;
 
 /// <summary>
 /// This Config class allows to pull configuration from several sub projects and setting files.

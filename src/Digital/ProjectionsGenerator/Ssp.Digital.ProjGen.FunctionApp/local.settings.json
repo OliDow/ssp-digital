@@ -6,6 +6,8 @@
     "MessageBusConnectionString": "Endpoint=sb://dev-hip-us-bus.servicebus.windows.net/;SharedAccessKeyName=tempkey;SharedAccessKey=V3hgm5IsAphfNh2V+VzmOchO5/bge5pck1xmDfxIWKs=",
     "OutEventTopicName": "out-events",
     "OutEventSubscriptionName": "digital",
-    "APPINSIGHTS_INSTRUMENTATIONKEY": "0ce98516-7fb2-4b80-99f6-4cceade69e9a"
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "0ce98516-7fb2-4b80-99f6-4cceade69e9a",
+    "MongoDbConfiguration:ConnectionString": "mongodb://mlh-nosqldatabase:xm5Kht0pklq1bYelgeC6RxNRaKrIKYRbaJVxRNw3e490YeueWeqvzCXV921l6E3hzEKHHe1yofzlEfctUjeXVA==@mlh-nosqldatabase.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@mlh-nosqldatabase@",
+    "MongoDbConfiguration:DatabaseName": "mlh-nosqldatabase"
   }
 }

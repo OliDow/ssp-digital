@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Ssp.Common.Messaging.Projections;
+using Ssp.Common.Data.Projections;
 using Ssp.EP.Events.Source;
 
 namespace Ssp.Digital.ProjGen.Application.Commands;

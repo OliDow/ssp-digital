@@ -1,4 +1,4 @@
-﻿namespace Ssp.Digital.Meter.Infrastructure.Configurations;
+﻿namespace Ssp.Common.Data.Mongo;
 
 public class MongoDbConfiguration
 {

@@ -1,13 +1,24 @@
-using Ssp.Common.Messaging.Projections;
+using HotChocolate;
+using Ssp.Common.Data.Projections;
 
-namespace Ssp.Digital.Projections;
+namespace Ssp.Digital.Projections.Meter;
 
 public class MeterProjection : IProjection
 {
+    public string Id { get; set; } = string.Empty;
+
+    [GraphQLDescription("MeterSerialNumber")]
     public string MeterSerialNumber { get; set; } = string.Empty;
+
+    [GraphQLDescription("An enum")]
     public string AccountNumber { get; set; } = string.Empty;
+
+    [GraphQLDescription("FuelType description")]
     public string FuelType { get; set; } = string.Empty;
+
+    [GraphQLDescription("SiteAddress desc")]
     public string SiteAddress { get; set; } = string.Empty;
+
     public string MeterPointNumber { get; set; } = string.Empty;
     public string MeterType { get; set; } = string.Empty;
 

@@ -1,4 +1,4 @@
-﻿namespace Ssp.Common.Messaging.Projections;
+﻿namespace Ssp.Common.Data.Projections;
 
 public interface IProjectionRepository
 {

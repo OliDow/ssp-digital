@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Ssp.Common.Messaging.Projections;
+using Ssp.Common.Data.Projections;
 using Ssp.Digital.ProjGen.Application.Generators;
 using System.Diagnostics.CodeAnalysis;
 

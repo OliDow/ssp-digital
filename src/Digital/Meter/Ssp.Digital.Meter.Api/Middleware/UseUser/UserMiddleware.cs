@@ -12,7 +12,7 @@ public class UserMiddleware
 
     public UserMiddleware(FieldDelegate next)
     {
-        _next = next;
+        _next = next ?? throw new ArgumentNullException(nameof(next));
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ public class UserMiddleware
         if (context.ContextData.TryGetValue("ClaimsPrincipal", out var rawClaimsPrincipal) &&
             rawClaimsPrincipal is ClaimsPrincipal claimsPrincipal)
         {
-            User user = new User()
+            User user = new()
             {
                 Id = "IDTest",
                 Email = "EmailTest@test.com",

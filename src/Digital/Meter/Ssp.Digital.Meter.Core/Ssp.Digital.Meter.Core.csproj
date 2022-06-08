@@ -8,7 +8,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="MongoDB.Bson" Version="2.15.1"/>
+        <PackageReference Include="MongoDB.Bson" Version="2.16.0" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Common\Ssp.Common.Data\Ssp.Common.Data.csproj" />
+      <ProjectReference Include="..\..\Ssp.Digital.Projections\Ssp.Digital.Projections.csproj" />
     </ItemGroup>
 
 </Project>

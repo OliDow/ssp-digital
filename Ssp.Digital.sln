@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ssp.Digital.Meter.Core", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ssp.Digital.Meter.Infrastructure", "src\Digital\Meter\Ssp.Digital.Meter.Infrastructure\Ssp.Digital.Meter.Infrastructure.csproj", "{B0C97FBA-17B2-4E47-931F-87D87A480BC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ssp.Common.Data", "src\Common\Ssp.Common.Data\Ssp.Common.Data.csproj", "{124CD764-6314-40FC-ABE5-7DF8782891C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,10 @@ Global
 		{B0C97FBA-17B2-4E47-931F-87D87A480BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0C97FBA-17B2-4E47-931F-87D87A480BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0C97FBA-17B2-4E47-931F-87D87A480BC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{124CD764-6314-40FC-ABE5-7DF8782891C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{124CD764-6314-40FC-ABE5-7DF8782891C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{124CD764-6314-40FC-ABE5-7DF8782891C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{124CD764-6314-40FC-ABE5-7DF8782891C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,6 +137,7 @@ Global
 		{03E2CA70-2B3F-42AE-9E53-865A08C4623B} = {E2678D88-CCFA-46F0-A656-FE01CB6E7041}
 		{FB01CA70-EB5A-48C9-B9FB-3C4EE4D6920C} = {AC0306FF-FB7E-4C61-B6BB-5B7AA13414C3}
 		{B0C97FBA-17B2-4E47-931F-87D87A480BC7} = {AC0306FF-FB7E-4C61-B6BB-5B7AA13414C3}
+		{124CD764-6314-40FC-ABE5-7DF8782891C0} = {D59DC40B-9061-4882-A4E3-A0FF0B4A3F08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4B804C69-433C-4F89-8938-147960B6E90F}

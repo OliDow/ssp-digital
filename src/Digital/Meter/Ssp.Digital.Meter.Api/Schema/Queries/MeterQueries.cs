@@ -1,7 +1,8 @@
-﻿using Ssp.Digital.Meter.Api.Schema.Queries;
+﻿using HotChocolate.Data;
 using Ssp.Digital.Meter.Core.Repositories;
+using Ssp.Digital.Projections.Meter;
 
-namespace Ssp.Digital.Meter.API.Queries;
+namespace Ssp.Digital.Meter.Api.Schema.Queries;
 
 [ExtendObjectType(typeof(Query))]
 public class MeterQueries
@@ -11,7 +12,8 @@ public class MeterQueries
     /// </summary>
     /// <param name="meterRepository">The meter repository.</param>
     /// <returns>meterRepository.</returns>
-    public Task<IEnumerable<Core.Entities.Meter>> GetMeterAsync(
+    [UseFiltering]
+    public Task<IEnumerable<MeterProjection>> GetMeterAsync(
         [Service] IMeterRepository meterRepository) =>
        meterRepository.GetAllAsync();
 
@@ -21,6 +23,6 @@ public class MeterQueries
     /// <param name="id">The identifier.</param>
     /// <param name="meterRepository">The meter repository.</param>
     /// <returns>meterRepository.</returns>
-    public Task<Core.Entities.Meter> GetMeterAsync(string id, [Service] IMeterRepository meterRepository) =>
+    public Task<MeterProjection> GetMeterAsync(string id, [Service] IMeterRepository meterRepository) =>
         meterRepository.GetByIdAsync(id);
 }

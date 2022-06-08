@@ -1,5 +1,6 @@
-using Ssp.Digital.Meter.API.Configurations;
-using Ssp.Digital.Meter.API.Queries;
+using Ssp.Common.Data.Extensions;
+using Ssp.Common.Data.Repository;
+using Ssp.Digital.Meter.Api.Configurations;
 using Ssp.Digital.Meter.Api.Schema.Queries;
 using Ssp.Digital.Meter.Core.Repositories;
 using Ssp.Digital.Meter.Infrastructure.Data;
@@ -13,15 +14,15 @@ builder.Services.AddSingleton(configValue.MongoDbConfiguration);
 
 // Repositories
 builder.Services.AddSingleton<IMeterProjectionsContext, MeterProjectionsContext>();
-builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+builder.Services.AddScoped(typeof(IReadModelRepository<>), typeof(ReadModelRepository<>));
 builder.Services.AddScoped<IMeterRepository, MeterRepository>();
 
 // GraphQL
 builder.Services
     .AddGraphQLServer()
-    // .AddAssetTypes() //for assembly registration of annotated using type attributes
+    .AddAssetTypes() // for assembly registration of annotated using type attributes
     .AddQueryType<Query>()
-        .AddTypeExtension<MeterQueries>()
+    // .AddTypeExtension<MeterQueries>()
     // .AddMutationType<Mutations>()
     // .AddTypeExtension<MeterMutations>()
     // .AddSubscriptionType()
@@ -38,10 +39,12 @@ builder.Services
     .AddMongoDbFiltering()
     .AddMongoDbSorting();
 
+builder.Services.AddCqrs();
+
 var app = builder.Build();
 
 app.MapGraphQL();
-
-app.UseAuthentication();
+app.UseGraphQLVoyager();
+// app.UseAuthentication();
 
 app.Run();
