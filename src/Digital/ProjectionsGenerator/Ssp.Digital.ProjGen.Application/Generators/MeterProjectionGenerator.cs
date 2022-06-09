@@ -5,19 +5,23 @@ using Ssp.EP.Events.Source;
 
 namespace Ssp.Digital.ProjGen.Application.Generators;
 
-public class MeterProjectionGenerator : IProjectionGenerator
+public class MeterProjectionGenerator : ProjectionGenerator
 {
-    public List<Type> UpdateEvent { get; } = new() { typeof(MeterCreated), typeof(MeterReadingSubmitted) };
-
-    public ICollection<IProjection> Generate(IEvent @event, IReadOnlyCollection<IProjection> projections)
+    public MeterProjectionGenerator()
     {
-        // todo Abstract boiler plate code
-        var eventType = @event.GetType();
-        if (!UpdateEvent.Contains(eventType))
+        UpdateEvent = new List<Type>
         {
-            throw new ArgumentException($"Supplied Event was not in UpdateEvent List");
-        }
+            typeof(Meter),
+            typeof(MeteringPoint),
+            typeof(MeteringPointDeliveredService),
+            typeof(MeteringPointMeter),
+            typeof(Meter),
+            typeof(MeterReadingSubmitted)
+        };
+    }
 
+    protected override ICollection<IProjection> UpdateProjections(IEvent @event, IReadOnlyCollection<IProjection> projections)
+    {
         var meterProjection = projections.OfType<MeterProjection>().SingleOrDefault() ?? new MeterProjection
         {
             Id = Guid.NewGuid().ToString()
@@ -25,11 +29,8 @@ public class MeterProjectionGenerator : IProjectionGenerator
 
         switch (@event)
         {
-            case MeterCreated meterCreated:
-                meterProjection.MeterSerialNumber = meterCreated.MeterSerialNumber;
-                meterProjection.FuelType = meterCreated.FuelType;
-                meterProjection.SiteAddress = meterCreated.MeterSerialNumber;
-                meterProjection.MeterPointNumber = meterCreated.MeterPointNumber;
+            case Meter meterCreated:
+                meterProjection.MeterSerialNumber = meterCreated.SerialNumber;
                 meterProjection.MeterType = meterCreated.MeterType;
                 break;
 
