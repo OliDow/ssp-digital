@@ -8,14 +8,28 @@ namespace Ssp.Digital.Meter.Api.Schema.Queries;
 public class MeterQueries
 {
     /// <summary>
-    /// Gets the meter asynchronous. multiple records.
+    /// Gets the meter asynchronous. multiple records with pagination.
     /// </summary>
     /// <param name="meterRepository">The meter repository.</param>
     /// <returns>meterRepository.</returns>
+    [UsePaging]
+    [UseProjection]
+    [UseSorting]
     [UseFiltering]
-    public Task<IEnumerable<MeterProjection>> GetMeterAsync(
+    public IExecutable<MeterProjection> GetMeterPaged(
         [Service] IMeterRepository meterRepository) =>
-       meterRepository.GetAllAsync();
+       meterRepository.GetAllAsExecutable();
+
+    /// <summary>
+    /// Gets the meter asynchronous. multiple records with pagination.
+    /// </summary>
+    /// <param name="meterRepository">The meter repository.</param>
+    /// <returns>meterRepository.</returns>
+    [UseSorting]
+    [UseFiltering]
+    public IExecutable<MeterProjection> GetMeter(
+        [Service] IMeterRepository meterRepository) =>
+       meterRepository.GetAllAsExecutable();
 
     /// <summary>
     /// Gets the meter asynchronous. Singular record.
@@ -23,6 +37,7 @@ public class MeterQueries
     /// <param name="id">The identifier.</param>
     /// <param name="meterRepository">The meter repository.</param>
     /// <returns>meterRepository.</returns>
-    public Task<MeterProjection> GetMeterAsync(string id, [Service] IMeterRepository meterRepository) =>
-        meterRepository.GetByIdAsync(id);
+    [UseFirstOrDefault]
+    public IExecutable<MeterProjection> GetMeter(string id, [Service] IMeterRepository meterRepository) =>
+        meterRepository.GetByIdAsExecutable(id);
 }
