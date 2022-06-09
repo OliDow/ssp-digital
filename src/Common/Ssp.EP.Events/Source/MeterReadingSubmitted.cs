@@ -1,6 +1,5 @@
 using MediatR;
 using Ssp.Common;
-using Ssp.Common.Messaging;
 
 namespace Ssp.EP.Events.Source;
 
