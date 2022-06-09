@@ -24,8 +24,9 @@ public class Startup : FunctionsStartup
     {
         var configuration = builder.GetContext().Configuration;
 
-        builder.Services.AddTelemetry(ExecutingAssemblyName);
-        builder.Services.AddCommonProviders();
+        builder.Services
+            .AddTelemetry(ExecutingAssemblyName)
+            .AddCommonProviders();
 
         builder.Services.AddPocMessaging(configuration);
         builder.Services.AddPocEventHub(configuration);
